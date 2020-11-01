@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>search a city</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<div class="app">
+			<h2>Search City or State below</h2>
+			<form class="container">
+				<input type="text" class="input" name="cityname" placeholder="search" />
+				<ul class="ul">
+					<li>Search a city</li>
+					<li>or a state</li>
+				</ul>
+			</form>
+		</div>
+
+		<script>
+			const getData =
+				"https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json";
+
+			const cities = [];
+
+			fetch(getData)
+				.then(raw => raw.json())
+				.then(data => cities.push(...data));
+
+			function matchData(toMatch, cities) {
+				return cities.filter(place => {
+					const regex = new RegExp(toMatch, "gi");
+					return place.city.match(regex) || place.state.match(regex);
+				});
+			}
+
+			function numberWithCommas(x) {
+				return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+			}
+
+			function displayResult() {
+				const matchArray = matchData(this.value, cities);
+				const displayElement = matchArray
+					.map(place => {
+						const regex = new RegExp(this.value, "gi");
+						const cityname = place.city.replace(
+							regex,
+							`<span class="highLighted">${this.value}</span>`
+						);
+
+						const stateName = place.state.replace(
+							regex,
+							`<span class="highLighted">${this.value}</span>`
+						);
+
+						return ` 
+						<li>
+      		  	<span class="name">${cityname}, ${stateName}</span>
+        			<span class="population">${numberWithCommas(place.population)}</span>
+    			  </li> 
+						`;
+					})
+					.join("");
+
+				suggestions.innerHTML = displayElement;
+				// console.log(this.value);
+			}
+
+			const inputElement = document.querySelector(".input");
+			const suggestions = document.querySelector(".ul");
+
+			inputElement.addEventListener("change", displayResult);
+			inputElement.addEventListener("keyup", displayResult);
+		</script>
+	</body>
+</html>

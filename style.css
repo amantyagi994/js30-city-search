@@ -1,0 +1,125 @@
+*,
+*::before,
+*::after {
+	padding: 0;
+	margin: 0;
+	border: none;
+	box-sizing: border-box;
+	outline: none;
+	-webkit-tap-highlight-color: transparent;
+	font-family: sans-serif;
+}
+
+::-webkit-scrollbar {
+	width: 6px;
+}
+
+::-webkit-scrollbar-track {
+	background: #d1c3d3;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #440072;
+	border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #440072;
+}
+
+ul {
+	list-style: none;
+}
+
+.app {
+	min-height: 100vh;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	flex-direction: column;
+	background-color: #d1c3d3;
+	overflow-y: auto;
+}
+
+h2 {
+	font-size: 2rem;
+	font-weight: bolder;
+	/* background: linear-gradient(160deg, #bf4bf5, #9f6ce0, #bf4bf5); */
+	padding: 1rem 4rem;
+	margin: 1rem;
+	/* box-shadow: 0 8px 16px -8px #000000cc; */
+	border: 1px solid #9f6ce0;
+	border-radius: 0.5rem;
+	filter: drop-shadow(0 2px 2px #000000cc);
+}
+
+.container {
+	width: 50%;
+	max-width: 60rem;
+	height: 100%;
+	/* background: #b76aff; */
+	background: linear-gradient(160deg, #bf4bf5, #9f6ce0, #bf4bf5);
+	/* border: 2px solid #ffd000; */
+	padding: 1rem;
+	box-shadow: 0 8px 16px -8px #000000cc;
+	border-radius: 0.5rem;
+}
+
+.input {
+	width: 100%;
+	padding: 1rem;
+	/* border: 2px solid teal; */
+	font-size: 1.3rem;
+	border-radius: 0.5rem;
+	box-shadow: 0 8px 16px -8px #000000cc;
+	margin: 1rem 0;
+}
+
+.ul {
+	margin: 1rem 0;
+	/* max-height: 30rem; */
+	border-radius: 0.5rem;
+	padding: 1rem;
+	box-shadow: inset 0 8px 16px -8px #000000cc;
+}
+
+li {
+	border-radius: 0.5rem;
+	padding: 1rem;
+	font-size: 1.3rem;
+	font-weight: bold;
+	letter-spacing: 1px;
+	box-shadow: 0 2px 6px -2px #000000cc;
+	border: none;
+	margin: 0.5rem 0;
+	display: flex;
+	background: linear-gradient(to Bottom, #d364ff, #e97bff);
+	align-items: center;
+	justify-content: space-between;
+}
+
+/* li:nth-child(even) {
+	background: linear-gradient(to Bottom, #d364ff, #e97bff);
+	transform: perspective(300px) rotateX(2deg);
+}
+
+li:nth-child(odd) {
+	background: linear-gradient(to Bottom, #e97bff, #d364ff);
+	transform: perspective(300px) rotateX(-2deg);
+} */
+
+.highLighted {
+	background-color: #000000;
+	color: #ffffff;
+}
+
+.name {
+	font-size: 1.5rem;
+	color: rgb(238, 255, 0);
+}
+
+.population {
+	font-size: 1.2rem;
+	color: rgb(255, 255, 255);
+}
